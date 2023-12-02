@@ -15,7 +15,7 @@ You’ll start by editing this README file to learn how to edit a file in Bitbuc
 
 1. Clone a project
 2. From root project cd to frontend, backend and backend/database
-3. If run on **local** yarn install or npm install
+3. If run on **local** composer install, yarn install or npm install
 4. Migrate database in ./database use run script in mysql
 5. config .env like .env.example
 6. In frontend run **yarn dev** backend run **php artisan serve**
