@@ -7,6 +7,7 @@
 1. operation system
 2. php >= 8.1
 3. mysql
+4. node version >= 20.7.0
 
 ## Install and Run Project
 
