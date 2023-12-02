@@ -1,0 +1,33 @@
+version: '3'
+services:
+  database:
+    #image name
+    build: ./database
+    ports:
+      - 3306:3306 #map port
+  frontend:
+    #image name
+    build: ./frontend
+    environment:
+      API_URL: http://backend:8000
+    ports:
+      - 3000:3000 #map port
+    depends_on:
+      - database
+
+  backend:
+    #image name
+    build: ./backend
+    environment:
+      DB_HOST: database
+    ports:
+      - 8000:8000 #map port
+    command: 'php artisan serve --host=0.0.0.0'
+    links: 
+      - database
+    depends_on:
+      - frontend
+      # - composer
+    restart: unless-stopped # for wait database run
+    
+

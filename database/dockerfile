@@ -1,0 +1,19 @@
+FROM mysql:latest
+
+RUN chown -R mysql:root /var/lib/mysql/
+
+ARG MYSQL_DATABASE='assignment_scg'
+ARG MYSQL_USER='assignment_scg'
+ARG MYSQL_PASSWORD='root'
+ARG MYSQL_ROOT_PASSWORD='root'
+
+ENV MYSQL_DATABASE=$MYSQL_DATABASE
+ENV MYSQL_USER=$MYSQL_USER
+ENV MYSQL_PASSWORD=$MYSQL_PASSWORD
+ENV MYSQL_ROOT_PASSWORD=$MYSQL_ROOT_PASSWORD
+
+ADD assignment_scg.sql /etc/mysql/assignment_scg.sql
+
+RUN sed -i 's/MYSQL_DATABASE/'$MYSQL_DATABASE'/g' /etc/mysql/assignment_scg.sql
+RUN cp /etc/mysql/assignment_scg.sql /docker-entrypoint-initdb.d
+
