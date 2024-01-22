@@ -20,3 +20,5 @@ You’ll start by editing this README file to learn how to edit a file in Bitbuc
 5. config .env like .env.example
 6. In frontend run **yarn dev** backend run **php artisan serve**
 7. If run **Docker** Start docker container run "docker-compose up -d --build" in root project
+
+## test
